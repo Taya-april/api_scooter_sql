@@ -1,7 +1,7 @@
 --Задание 1
-SELECT c.login, COUNT(o."courierId") AS num_orders_in_delivery
+SELECT c.login, COUNT(*) AS num_orders_in_delivery
 FROM "Couriers" c
-LEFT OUTER JOIN "Orders" o ON c.id = o."courierId"
+INNER JOIN "Orders" o ON c.id = o."courierId"
 WHERE o."inDelivery" = true
 GROUP BY c.login;
 
